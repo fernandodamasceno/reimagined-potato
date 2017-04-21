@@ -3,7 +3,6 @@ public class Produto {
 	float avaliacao, preco;
 	int SKU;
 	public Produto(String nome, String descricao, float avaliacao, float preco, int sKU) {
-		super();
 		this.nome = nome;
 		this.descricao = descricao;
 		this.avaliacao = avaliacao;
