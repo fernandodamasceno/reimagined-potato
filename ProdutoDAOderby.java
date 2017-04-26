@@ -1,6 +1,3 @@
-
-
-import negocio.DAOProdutoException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +9,7 @@ import java.util.List;
 public class ProdutoDAOderby implements ProdutoDAO {
 
     @Override
-    public List<Produto> buscarTodos() throws DAOProdutoException {
+    public List<Produto> buscarTodos() throws Exception{
         List<Produto> produtos = new ArrayList<>();
         String sql = "select * from produtos";
         try (Connection conexao = InicializadorBancoDadosDataSource.conectarBd()) {
@@ -27,13 +24,13 @@ public class ProdutoDAOderby implements ProdutoDAO {
                                 resultado.getFloat("preco"),
                                 resultado.getIntt("sKU"));
 
-                        autores.add(autor);
+                        produtos.add(produto);
                     }
                     return autores;
                 }
             }
         } catch (Exception e) {
-            throw new DAOAutorException("Falha na busca", e);
+            throw new Exception("Falha na busca", e);
         }
     }
 
