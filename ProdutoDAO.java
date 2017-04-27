@@ -1,8 +1,8 @@
-import java.util.List:
+import java.util.List;
 
 public interface ProdutoDAO{
 
-    List<ProdutoDTO> buscarTodos() throws Exception;
+    List<Produto> buscarTodos() throws Exception;
    
 
 }

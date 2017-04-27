@@ -12,7 +12,7 @@ public class ProdutoDAOderby implements ProdutoDAO {
     public List<Produto> buscarTodos() throws Exception{
         List<Produto> produtos = new ArrayList<>();
         String sql = "select * from produtos";
-        try (Connection conexao = InicializadorBancoDadosDataSource.conectarBd()) {
+        try (Connection conexao = InicializadorBancoDados.conectarBd()) {
             try (Statement comando = conexao.createStatement()) {
                 try (ResultSet resultado = comando.executeQuery(sql)) {
                     while (resultado.next()) {
@@ -22,11 +22,11 @@ public class ProdutoDAOderby implements ProdutoDAO {
                                 resultado.getString("descricao"),
                                 resultado.getFloat("avaliacao"),
                                 resultado.getFloat("preco"),
-                                resultado.getIntt("sKU"));
+                                resultado.getInt("sKU"));
 
                         produtos.add(produto);
                     }
-                    return autores;
+                    return produtos;
                 }
             }
         } catch (Exception e) {

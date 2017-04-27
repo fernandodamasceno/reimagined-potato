@@ -4,13 +4,15 @@ import java.sql.Statement;
 import javax.sql.DataSource;
 import org.apache.derby.jdbc.EmbeddedDataSource;
 
-public class InicializadorBancoDadosDataSource {
 
-    public static String DB_NAME = "cadastro";
-    public static String USER_NAME = "usuario";
-    public static String PASSWORD = "senha";
+public class InicializadorBancoDados {
+
+    public static String DB_NAME = "dealExtremeDB";
+    public static String USER_NAME = "user";
+    public static String PASSWORD = "user";
     private static DataSource dataSource;
-
+    
+    
     private static DataSource criarDataSource() throws Exception {
         if (dataSource == null) {
             EmbeddedDataSource ds = new EmbeddedDataSource();
